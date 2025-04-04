@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gift catalog</title>
+    <title>Product Grid with TGS Animations</title>
     
     <!-- Include Web Library -->
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
@@ -16,7 +16,7 @@
         padding: 0;
         background-color: #000000;
       }
-  
+
       .container {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
@@ -25,7 +25,7 @@
         max-width: 1200px;
         margin: 0 auto;
       }
-  
+
       .product {
           position: relative;
           background: #181818; 
@@ -36,22 +36,23 @@
           max-width: 200px;
           backdrop-filter: blur(15px); 
           -webkit-backdrop-filter: blur(15px);
-          overflow: hidden;
+          overflow: hidden; 
       }
-  
-  
+
+
+
       .product h3 {
         margin-top: 0;
         color: white;
         font-size: 1.2em;
       }
-  
+
       .product tgs-player {
           height: auto;
           max-width: 100%;
           margin: 0 auto;
       }
-  
+
       .product .price {
         font-size: 0.9em;
         color: white;
@@ -60,10 +61,10 @@
         padding: 3px 8px;
         border-radius: 20px;
       }
-  
+
       .limited {
           position: absolute;
-          top: 13px;
+          top: 13px; 
           right: -35px;
           background-color: rgb(63, 108, 145);
           color: white;
@@ -74,26 +75,26 @@
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
           transform: rotate(45deg);
       }
-  
+
       /* Responsive Design */
       @media screen and (max-width: 1250px) {
         .container {
           grid-template-columns: repeat(6, 1fr);
         }
       }
-  
+
       @media screen and (max-width: 1000px) {
         .container {
           grid-template-columns: repeat(5, 1fr);
         }
       }
-  
+
       @media screen and (max-width: 768px) {
         .container {
           grid-template-columns: repeat(4, fr);
         }
       }
-  
+
       @media screen and (max-width: 580px) {
         .container {
           grid-template-columns: repeat(3, 1fr);
@@ -101,7 +102,6 @@
       }
     </style>
   </head>
-  
   <body>
     <div class="container" id="container"></div>
     <script>
@@ -117,7 +117,7 @@
             div.className = 'product';
             div.innerHTML = `
             <tgs-player autoplay="" mode="normal" src="images/${item.id}.tgs" onmouseover="ClickGift(this);" id="${item.id}"></tgs-player>
-            ${item.remaining_count !== null && item.total_count !== null ? `<div class="limited">limited</div>` : ''}
+            ${item.is_limited_edition !== null ? `<div class="limited">limited</div>` : ''}
             <div style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;"><span class="price"><img src="images/emoji2.png" width="14"> ${item.price * 2}</span> </div>`;
             container.appendChild(div);
             div.addEventListener('click', function () {
@@ -139,11 +139,12 @@
           delete data_active_gift[event.target.id]
         });
       }
-                      
+
       document.addEventListener('DOMContentLoaded', function() {
         load_gift_start();
         window.Telegram.WebApp.ready()
       });
+
     </script>
   </body>
 </html>
