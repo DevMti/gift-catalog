@@ -1,62 +1,62 @@
 [
     {
         "id": "5170145012310081615",
-        "price": 38,
+        "price": 45,
         "is_limited_edition": false
     },
     {
         "id": "5170233102089322756",
-        "price": 38,
+        "price": 45,
         "is_limited_edition": false
     },
     {
         "id": "5170250947678437525",
-        "price": 62,
+        "price": 75,
         "is_limited_edition": false
     },
     {
         "id": "5168103777563050263",
-        "price": 62,
+        "price": 75,
         "is_limited_edition": false
     },
     {
         "id": "5170144170496491616",
-        "price": 125,
+        "price": 150,
         "is_limited_edition": false
     },
     {
         "id": "5170314324215857265",
-        "price": 125,
+        "price": 150,
         "is_limited_edition": false
     },
     {
         "id": "5170564780938756245",
-        "price": 125,
+        "price": 150,
         "is_limited_edition": false
     },
     {
         "id": "5168043875654172773",
-        "price": 250,
+        "price": 300,
         "is_limited_edition": false
     },
     {
         "id": "5170690322832818290",
-        "price": 250,
+        "price": 300,
         "is_limited_edition": false
     },
     {
         "id": "5170521118301225164",
-        "price": 250,
+        "price": 300,
         "is_limited_edition": false
     },
     {
         "id": "6028601630662853006",
-        "price": 125,
+        "price": 150,
         "is_limited_edition": false
     },
     {
         "id": "5782984811920491178",
-        "price": 875,
+        "price": 1050,
         "is_limited_edition": true
     }
 ]
