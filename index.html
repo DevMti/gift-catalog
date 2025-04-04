@@ -1,210 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Grid with TGS Animations</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift catalog</title>
+    
+    <!-- Include Web Library -->
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/tgs-player.js"></script>
+    
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #000000;
+      }
   
-  <!-- Include Lottie Web Library -->
-  <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/tgs-player.js"></script>
-  
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #000000;
-    }
-
-    .container {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 8px;
-      padding: 15px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .product {
-        position: relative;
-        background: #181818; /* Transparent glassy white */
-        border-radius: 10px;
-        padding: 13px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft floating effect */
-        text-align: center;
-        max-width: 200px;
-        backdrop-filter: blur(15px); /* Frosted glass effect */
-        -webkit-backdrop-filter: blur(15px);
-
-        /* border: 1px solid rgba(255, 255, 255, 0.3);  */
-        overflow: hidden; /* Prevents pseudo-elements from overflowing */
-    }
-
-
-
-    .product h3 {
-      margin-top: 0;
-      color: white;
-      font-size: 1.2em;
-    }
-
-    .product tgs-player {
-        height: auto;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .product .price {
-      font-size: 0.9em;
-      color: white;
-      font-family: 'Poppins', sans-serif;
-      background-color: #2d2415;
-      padding: 3px 8px;
-      border-radius: 20px;
-      /* margin-top: 15px; */
-    }
-
-    .limited {
-        position: absolute;
-        top: 13px; /* Adjust spacing below the animation */
-        right: -35px;
-        background-color: rgb(63, 108, 145);
-        color: white;
-        font-family: 'Roboto', sans-serif;
-        font-size: 11px;
-        font-weight: Mono;
-        padding: 3px 40px;
-        /* border-radius: 15px; */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-        transform: rotate(45deg);
-    }
-
-    /* Responsive Design */
-    @media screen and (max-width: 1250px) {
       .container {
+        display: grid;
         grid-template-columns: repeat(6, 1fr);
+        gap: 8px;
+        padding: 15px;
+        max-width: 1200px;
+        margin: 0 auto;
       }
-    }
-
-    @media screen and (max-width: 1000px) {
-      .container {
-        grid-template-columns: repeat(5, 1fr);
-      }
-    }
-
-    @media screen and (max-width: 768px) {
-      .container {
-        grid-template-columns: repeat(4, fr);
-      }
-    }
-
-    @media screen and (max-width: 580px) {
-      .container {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-  </style>
-</head>
-<body>
-<div class="container" id="container"></div>
-<script>
-  const data_active_gift = {};
   
-  function load_gift_start() {
-    fetch('data.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('container');
-      data.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'product';
-        div.innerHTML = `
-        <tgs-player autoplay="" mode="normal" src="images/${item.id}.tgs" onmouseover="ClickGift(this);" id="${item.id}"></tgs-player>
-        ${item.remaining_count !== null && item.total_count !== null ? `<div class="limited">limited</div>` : ''}
-        <div style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;"><span class="price"><img src="images/emoji2.png" width="14"> ${item.price * 2}</span> </div>`;
-        container.appendChild(div);
-        div.addEventListener('click', function () {
-          window.Telegram.WebApp.sendData(`${item.id}`)
-          // window.Telegram.WebApp.close()
+      .product {
+          position: relative;
+          background: #181818; 
+          border-radius: 10px;
+          padding: 13px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+          text-align: center;
+          max-width: 200px;
+          backdrop-filter: blur(15px); 
+          -webkit-backdrop-filter: blur(15px);
+          overflow: hidden;
+      }
+  
+  
+      .product h3 {
+        margin-top: 0;
+        color: white;
+        font-size: 1.2em;
+      }
+  
+      .product tgs-player {
+          height: auto;
+          max-width: 100%;
+          margin: 0 auto;
+      }
+  
+      .product .price {
+        font-size: 0.9em;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        background-color: #2d2415;
+        padding: 3px 8px;
+        border-radius: 20px;
+      }
+  
+      .limited {
+          position: absolute;
+          top: 13px;
+          right: -35px;
+          background-color: rgb(63, 108, 145);
+          color: white;
+          font-family: 'Roboto', sans-serif;
+          font-size: 11px;
+          font-weight: Mono;
+          padding: 3px 40px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+          transform: rotate(45deg);
+      }
+  
+      /* Responsive Design */
+      @media screen and (max-width: 1250px) {
+        .container {
+          grid-template-columns: repeat(6, 1fr);
+        }
+      }
+  
+      @media screen and (max-width: 1000px) {
+        .container {
+          grid-template-columns: repeat(5, 1fr);
+        }
+      }
+  
+      @media screen and (max-width: 768px) {
+        .container {
+          grid-template-columns: repeat(4, fr);
+        }
+      }
+  
+      @media screen and (max-width: 580px) {
+        .container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div class="container" id="container"></div>
+    <script>
+      const data_active_gift = {};
+      
+      function load_gift_start() {
+        fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById('container');
+          data.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'product';
+            div.innerHTML = `
+            <tgs-player autoplay="" mode="normal" src="images/${item.id}.tgs" onmouseover="ClickGift(this);" id="${item.id}"></tgs-player>
+            ${item.remaining_count !== null && item.total_count !== null ? `<div class="limited">limited</div>` : ''}
+            <div style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;"><span class="price"><img src="images/emoji2.png" width="14"> ${item.price * 2}</span> </div>`;
+            container.appendChild(div);
+            div.addEventListener('click', function () {
+              window.Telegram.WebApp.sendData(`${item.id}`)
+            });
+          });
+        })
+        .catch(error => console.error('Error loading data:', error));
+      }
+                      
+      function ClickGift(element) {
+        if (element.id in data_active_gift) { return; }
+        data_active_gift[element.id] = true;
+        
+        element.stop();
+        element.play();
+        
+        element.addEventListener('complete', (event) => {
+          delete data_active_gift[event.target.id]
         });
+      }
+                      
+      document.addEventListener('DOMContentLoaded', function() {
+        load_gift_start();
+        window.Telegram.WebApp.ready()
       });
-    })
-    .catch(error => console.error('Error loading data:', error));
-  }
-                  
-  function ClickGift(element) {
-    if (element.id in data_active_gift) { return; }
-    data_active_gift[element.id] = true;
-    
-    element.stop();
-    element.play();
-    
-    element.addEventListener('complete', (event) => {
-      delete data_active_gift[event.target.id]
-    });
-  }
-                  
-  document.addEventListener('DOMContentLoaded', function() {
-    load_gift_start();
-  });
-
-  window.Telegram.WebApp.ready()
-</script>
-
-  <!-- <div class="container">
-    <div class="product">
-      <tgs-player autoplay="" mode="normal" src="https://mastergroosha.github.io/telegram-gifts-catalogue/images/6005880141270483700.tgs" id="animatedTGS" background="transparent"></tgs-player>
-      <div class="limited">15,234 / 30,000</div>
-      <div class="price">100⭐</div>
-      <code class="code">6005880141270483700</code>
-      <div class="tags">
-          <span class="tag new">New</span>
-          <span class="tag popular">Popular</span>
-      </div>
-    </div>
-    <div class="product" onclick="window.Telegram.WebApp.sendData('test')">
-        <tgs-player autoplay="" mode="normal" src="https://mastergroosha.github.io/telegram-gifts-catalogue/images/6005880141270483700.tgs" id="animatedTGS" background="transparent"></tgs-player>
-        <div class="price">200⭐</div>
-        <code class="code">6005880141270483700</code>
-        <div class="tags">
-          <span class="tag new">New</span>
-          <span class="tag limited">Limited</span>
-        </div>
-    </div>
-    <div class="product">
-        <tgs-player autoplay="" mode="normal" src="https://mastergroosha.github.io/telegram-gifts-catalogue/images/6005880141270483700.tgs" id="animatedTGS" background="transparent"></tgs-player>
-        <div class="price">50⭐</div>
-        <code class="code">6005880141270483700</code>
-        <div class="tags">
-            <span class="tag">Standard Item</span>
-        </div>
-    </div>
-    <div class="product">
-        <tgs-player autoplay="" mode="normal" src="https://mastergroosha.github.io/telegram-gifts-catalogue/images/6005880141270483700.tgs" id="animatedTGS" background="transparent"></tgs-player>
-        <div class="price">400⭐</div>
-        <code class="code">6005880141270483700</code>
-        <div class="tags">
-            <span class="tag limited">Limited</span>
-            <span class="tag new">New</span>
-        </div>
-    </div>
-    <div class="product">
-        <tgs-player autoplay="" mode="normal" src="https://mastergroosha.github.io/telegram-gifts-catalogue/images/6005880141270483700.tgs" id="animatedTGS" background="transparent"></tgs-player>
-        <div class="price">300⭐</div>
-        <code class="code">6005880141270483700</code>
-        <div class="tags">
-            <span class="tag popular">Popular</span>
-        </div>
-    </div>
-    <div class="product">
-        <tgs-player autoplay="" mode="normal" src="https://mastergroosha.github.io/telegram-gifts-catalogue/images/6005880141270483700.tgs" id="animatedTGS" background="transparent"></tgs-player>
-        <div class="price">1200⭐</div>
-        <code class="code">6005880141270483700</code>
-        <div class="tags">
-        <span class="tag new">New</span>
-      </div>
-    </div>
-  </div> -->
-</body>
+    </script>
+  </body>
 </html>
