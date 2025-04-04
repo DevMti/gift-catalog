@@ -117,7 +117,7 @@
             div.className = 'product';
             div.innerHTML = `
             <tgs-player autoplay="" mode="normal" src="images/${item.id}.tgs" onmouseover="ClickGift(this);" id="${item.id}"></tgs-player>
-            ${item.is_limited_edition !== null ? `<div class="limited">limited</div>` : ''}
+            ${item.is_limited_edition ? `<div class="limited">limited</div>` : ''}
             <div style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;"><span class="price"><img src="images/emoji2.png" width="14"> ${item.price}</span> </div>`;
             container.appendChild(div);
             div.addEventListener('click', function () {
