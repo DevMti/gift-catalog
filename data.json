@@ -15,11 +15,6 @@
         "is_limited_edition": false
     },
     {
-        "id": "5168103777563050263",
-        "price": 75,
-        "is_limited_edition": false
-    },
-    {
         "id": "5170144170496491616",
         "price": 150,
         "is_limited_edition": false
@@ -41,11 +36,6 @@
     },
     {
         "id": "5170690322832818290",
-        "price": 300,
-        "is_limited_edition": false
-    },
-    {
-        "id": "5170521118301225164",
         "price": 300,
         "is_limited_edition": false
     },
