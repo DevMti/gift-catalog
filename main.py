@@ -35,7 +35,8 @@ async def download_gifts(
             )
             with open(f"images/{file_name}", "rb") as f:
                 repo.create_file("images/" + file_name, "gift image", f.read(), branch="main")
-
+    
+    # check if data.json is same or not
     contents = repo.get_contents("data.json", ref="main")
     if loads(contents.decoded_content.decode('utf-8')) != data:
         repo.update_file(contents.path, "gifts list", dumps(data, indent=4), contents.sha, branch="main")
