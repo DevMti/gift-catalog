@@ -1,4 +1,4 @@
-[
+/* [
     {
         "id": "5170145012310081615",
         "price": 45,
@@ -59,4 +59,5 @@
         "price": 1050,
         "is_limited_edition": true
     }
-]
+] */
+[{'id': '5265149461264334849', 'file': 'CAACAgEAAxUAAWf4HhBs5n_t7eKNCMWNiKK9JbjrAAIBAAN6vBBF4PxgkAr2UHE2BA', 'price': 1500, 'is_limited_edition': True, 'upgrade_amount': 100}, {'id': '5440883382529556482', 'file': 'CAACAgEAAxUAAWf4HhC8OIS4fX3893lMBjCBNsqSAAIBAANIAoBHH-B_QUKUNG82BA', 'price': 150, 'is_limited_edition': True, 'upgrade_amount': 5}, {'id': '5431380290645786625', 'file': 'CAACAgEAAxUAAWf4HhDfQyxz3faj7qKHRpsBo90fAAIBAAOf0mBHAtJab-rlTqM2BA', 'price': 60, 'is_limited_edition': True, 'upgrade_amount': 5}, {'id': '5415904913592942593', 'file': 'CAACAgEAAxUAAWf4HhAF3J8FC9HD1gJLcQIcfy6wAAIBAAMO6sBGumqzHJaHL2Q2BA', 'price': 75, 'is_limited_edition': False, 'upgrade_amount': None}, {'id': '5454418585415843841', 'file': 'CAACAgEAAxUAAWf4HhAbYLdornc2KhBnNKJGShw6AAIBAAMVa_hGporjjwNmZ4E2BA', 'price': 75, 'is_limited_edition': False, 'upgrade_amount': None}, {'id': '5453972608896729089', 'file': 'CAACAgEAAxUAAWf4HhDqZjamxnDt_AW6YPkwubmxAAIBAAPXb8FGzAcRKL0MtJI2BA', 'price': 75, 'is_limited_edition': False, 'upgrade_amount': None}, {'id': '5454079300179329025', 'file': 'CAACAgEAAxUAAWf4HhBuV8gVjpj8-KR2z3V9u5q7AAIBAANGcghHwyYdCZnBD0U2BA', 'price': 75, 'is_limited_edition': False, 'upgrade_amount': None}]
