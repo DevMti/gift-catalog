@@ -108,14 +108,15 @@
       const data_active_gift = {};
       
       function load_gift_start(searchParams) {
-        var limited = searchParams.get('limited') ? searchParams.get('limited') : "True"
         var standard = searchParams.get('standard') ? searchParams.get('standard') : "True"
+        var limited = searchParams.get('limited') ? searchParams.get('limited') : "True"
+        var unique = searchParams.get('unique') ? searchParams.get('unique') : "True"
         fetch('data.json')
         .then(response => response.json())
         .then(data => {
           const container = document.getElementById('container');
           data.forEach(item => {
-            if ((limited == "True" && item.is_limited_edition) || standard == "True" && !item.is_limited_edition){
+            if (((limited == "True" || unique == "True") && item.is_limited_edition) || standard == "True" && !item.is_limited_edition){
               const div = document.createElement('div');
               div.className = 'product';
               div.innerHTML = `
