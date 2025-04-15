@@ -110,7 +110,7 @@
       function load_gift_start(searchParams) {
         var standard = searchParams.get('standard') ? searchParams.get('standard') : "True"
         var limited = searchParams.get('limited') ? searchParams.get('limited') : "True"
-        var unique = searchParams.get('unique') ? searchParams.get('unique') : "True"
+        var unique = searchParams.get('unique') ? searchParams.get('unique') : "False"
         fetch('data.json')
         .then(response => response.json())
         .then(data => {
