@@ -1,16 +1,9 @@
 [
     {
-        "id": "5807641025165919973",
-        "price": 300,
-        "is_limited_edition": true
-    },
-    
-    {
         "id": "5170145012310081615",
         "price": 45,
         "is_limited_edition": false
     },
-    
     {
         "id": "5170233102089322756",
         "price": 45,
