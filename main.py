@@ -32,7 +32,8 @@ async def download_gifts(
             await bot.download(
                 file=gift.sticker.file_id,
                 destination=f"images/{file_name}",
-            )
+            ) 
+            print("new gift")
             with open(f"images/{file_name}", "rb") as f:
                 repo.create_file("images/" + file_name, "gift image", f.read(), branch="main")
 
