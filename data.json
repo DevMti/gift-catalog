@@ -1,5 +1,20 @@
 [
     {
+        "id": "5898012527257715797",
+        "price": 225,
+        "is_limited_edition": true
+    },
+    {
+        "id": "5900177027566142759",
+        "price": 300,
+        "is_limited_edition": true
+    },
+    {
+        "id": "5897607679345427347",
+        "price": 450,
+        "is_limited_edition": true
+    },
+    {
         "id": "5170145012310081615",
         "price": 45,
         "is_limited_edition": false
