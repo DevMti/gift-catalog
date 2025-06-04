@@ -5,9 +5,7 @@ from aiogram.types import Gifts
 from github import Github, Auth
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-async def download_gifts(
-        bot: Bot
-):
+async def download_gifts(bot: Bot):
     auth = Auth.Token("github_token")
     g = Github(auth=auth)
 
@@ -47,7 +45,6 @@ async def main():
     async with Bot(token="bot_token") as bot:
         await download_gifts(bot)
 
-
 async def setup():
     scheduler = AsyncIOScheduler()
     scheduler.add_job(main, 'interval', minutes=5)
@@ -55,7 +52,6 @@ async def setup():
     print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
     while True:
         await asyncio.sleep(1000)
-
 
 if __name__ == '__main__':
     asyncio.run(setup())
