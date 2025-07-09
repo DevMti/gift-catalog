@@ -10,16 +10,6 @@
         "is_limited_edition": true
     },
     {
-        "id": "6012435906336654262",
-        "price": 3000,
-        "is_limited_edition": true
-    },
-    {
-        "id": "6014675319464657779",
-        "price": 15000,
-        "is_limited_edition": true
-    },
-    {
         "id": "5170145012310081615",
         "price": 45,
         "is_limited_edition": false
